@@ -118,13 +118,25 @@ int guessingGame(int difficulty)
 {
     try {
         int guessInput;
-        std :: cin >> guessInput; // Receives the user input
-        if (guessInput >= 1 && guessInput <= difficulty) {
-            return guessInput;
-        }
-        else {
-            std::cout << "Out of bounds! Please select a number within 1 and " << difficulty;
-            std::cout << "\n";
+
+        while (true) {
+            std::cin >> guessInput; // Receives the user input
+
+
+            if (std::cin.fail()) {
+                std::cin.clear(); // will manually clear the error state
+                std::cin.ignore(1000, '\n'); // discards invalid input, such as a letter than a number
+                std::cout << "Invalid Input. Please choose within 1 - " << difficulty << ": ";
+                continue;
+            }
+
+            if (guessInput >= 1 && guessInput <= difficulty) {
+                return guessInput;
+                break;
+            }
+            else {
+                cout << "Invalid Input. Please select within 1 - " << difficulty << ": ";
+            }
         }
     }
     catch (exception e) {
