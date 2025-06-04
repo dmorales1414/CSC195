@@ -26,7 +26,7 @@ int main()
         cout << fraction3 << endl;
         cout << fraction3.toDouble() << endl;
     }
-    catch (const exception& e) 
+    catch (const exception& e)
     {
         cerr << "Error: " << e.what() << '\n';
     }

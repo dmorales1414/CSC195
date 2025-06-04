@@ -28,6 +28,7 @@ namespace mathlib
 			denominator = denom / gcd1;
 		}
 
+
 		// Simplify and toDouble methods, as well as gcd
 		void Simplify()
 		{
@@ -54,7 +55,7 @@ namespace mathlib
 		Fraction operator + (const Fraction& other) const
 		{
 			return Fraction(numerator * other.denominator + other.numerator * denominator, // cross equation = n1 * d2 = n2 * d1
-				denominator * other.denominator); 
+				denominator * other.denominator);
 		}
 		Fraction operator - (const Fraction& other) const
 		{
